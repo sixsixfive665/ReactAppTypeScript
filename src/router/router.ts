@@ -6,6 +6,10 @@ import Exception404 from 'views/Exception/Exception404'
 
 const routes = [
   {
+    path: "",
+    redirect: "/index"
+  },
+  {
     path: "/index",
     component: Index
   },

@@ -1,21 +1,26 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Button } from 'antd';
 import { HashRouter as Router } from 'react-router-dom';
 import routes from 'router/router'
 import renderRoutes from 'utils/renderRoutes'
 import 'App.css';
 
 const App: React.FC = () => {
-  useEffect(() => {
+  const [appTitle, setAppTitle] = React.useState<string>('')
+  React.useEffect(() => {
     console.log('welcome to react world!')
+    setAppTitle('React&&Typescript')
   }, [])
 
   return (
-    <Router>
-      <div className="App">
-        APP页面！
-        {renderRoutes(routes)}
-      </div>
-    </Router>
+    <div className="app_container">
+      <Router>
+        <Button type="primary">{appTitle}</Button>
+        <div className="App">
+          {renderRoutes(routes)}
+        </div>
+      </Router>
+    </div>
   );
 }
 
