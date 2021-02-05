@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Switch } from 'react-router-dom';
+import routes from 'router/router'
+import renderRoutes from 'utils/renderRoutes'
+import 'App.css';
 
-function App() {
+const App: React.FC = () => {
+  useEffect(() => {
+    console.log('welcome to react world!')
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        APP页面！
+        <Switch>
+          {renderRoutes(routes)}
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
