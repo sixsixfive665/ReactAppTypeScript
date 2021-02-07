@@ -1,15 +1,22 @@
 import React from 'react';
 import { Button } from 'antd'
+import Lockr from 'lockr/index'
 
-const Index: React.FC = () => {
+const Index: React.FC = (props: any) => {
   const [initData, setInitData] = React.useState<string>('初始值！')
+
+  const handleLogout = () => {
+    Lockr.rm('token')
+    props.history.push('/login')
+  }
+
   React.useEffect(() => {
-    setInitData('变更值！')
+    setInitData('注销呀！')
   }, [])
   return (
     <div>
       首页！
-      <Button type="primary">{initData}</Button>
+      <Button type="primary" onClick={handleLogout}>{initData}</Button>
     </div>
   );
 };

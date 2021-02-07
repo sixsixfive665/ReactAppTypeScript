@@ -1,16 +1,27 @@
 import React from 'react';
 import { Button } from 'antd'
 import Lockr from 'lockr/index'
+import store from 'store/index'
 
 const Login: React.FC = (props: any) => {
   const handleLogin = (): void => {
     Lockr.set('token', 'abcd')
-    props.history.push('/index')
+    store.dispatch({
+      type: 'UpdateConfig',
+      payload: {
+        globalLoading: true
+      }
+    })
+    setTimeout(() => {
+      props.history.push('/index')
+      store.dispatch({
+        type: 'UpdateConfig',
+        payload: {
+          globalLoading: false
+        }
+      })
+    }, 1500);
   }
-
-  // React.useEffect(() => {
-  //   console.log(store.getState())
-  // },[])
 
   return (
     <div>
