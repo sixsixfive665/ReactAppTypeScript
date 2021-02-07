@@ -1,3 +1,4 @@
+import Login from 'views/Login/Login'
 import Index from 'views/Index/Index'
 import About from 'views/About/About'
 import Other from 'views/Other/Other'
@@ -8,6 +9,10 @@ const routes = [
   {
     path: "/",
     redirect: "/index"
+  },
+  {
+    path: "/login",
+    component: Login
   },
   {
     path: "/index",

@@ -2,8 +2,11 @@ import {
   Route, Switch, Redirect
 } from 'react-router-dom';
 import { RouteInterface } from 'assets/interface';
+import Lockr from 'lockr'
 
 const renderRoutes = (routes: Array<any>): any => {
+  console.log("执行渲染")
+  const token = Lockr.get('token')
   return (
     <Switch>
       {
