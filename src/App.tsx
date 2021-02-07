@@ -6,10 +6,10 @@ import renderRoutes from 'utils/renderRoutes'
 import 'App.css';
 
 const App: React.FC = () => {
-  const [appTitle, setAppTitle] = React.useState<string>('')
+  const [appTitle, setAppTitle] = React.useState<string>('123')
   React.useEffect(() => {
     console.log('welcome to react world!')
-    setAppTitle('React&&Typescript')
+    // setAppTitle('React&&Typescript')
   }, [])
 
   return (

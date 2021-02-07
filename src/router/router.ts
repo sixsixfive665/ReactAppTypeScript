@@ -6,7 +6,7 @@ import Exception404 from 'views/Exception/Exception404'
 
 const routes = [
   {
-    path: "",
+    path: "/",
     redirect: "/index"
   },
   {
@@ -24,6 +24,10 @@ const routes = [
       {
         path: "/other/otherChild",
         component: OtherChild
+      },
+      {
+        path: "*",
+        redirect: "/exception404"
       }
     ]
   },
@@ -33,7 +37,7 @@ const routes = [
   },
   {
     path: "*",
-    component: Exception404
+    redirect: "/exception404"
   }
 ]
 
