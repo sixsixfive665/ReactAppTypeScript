@@ -7,21 +7,35 @@ import Lockr from 'lockr'
 const renderRoutes = (routes: Array<any>): any => {
   console.log("执行渲染")
   const token = Lockr.get('token')
+  const whiteList = ['/login', '/exception404']
   return (
     <Switch>
       {
         routes.map((route: RouteInterface, index: number) => {
           // 判断重定向
           if (!route.redirect) {
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                render={props => (
-                  <route.component {...props} routes={route.routes} />
-                )}
-              />
-            );
+            // 判断免登录白名单路由
+            if (whiteList.includes(route.path) || token) {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  render={props => (
+                    <route.component {...props} routes={route.routes} />
+                  )}
+                />
+              );
+            } else {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  render={props => (
+                    <Redirect to={'/login'} />
+                  )}
+                />
+              )
+            }
           } else {
             return (
               <Route

@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import routes from 'router/router'
+import routes from 'router/index'
 import renderRoutes from 'utils/renderRoutes'
 import 'App.css';
 
