@@ -1,11 +1,16 @@
 import { ActionInterface } from 'assets/interface'
 
+interface configInterface {
+  baseUrl: string;
+  globalLoading: boolean
+}
+
 const config = {
-  baseUrl: 'https://www.fastmock.site/mock/ffb77a979ff0f5a28b06472b4eec5a0a/example',
+  baseUrl: 'https://www.fastmock.site/mock/ef6048adaa069773399c93c642e9ef02/api',
   globalLoading: false
 }
 
-function configReducer(state: any = { ...config }, action: ActionInterface) {
+function configReducer(state: configInterface = { ...config }, action: ActionInterface) {
   let UpdateConfig = 'UpdateConfig'
   switch (action.type) {
     case UpdateConfig:
